@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapMap - Gallery Upload</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
+        .upload-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; width: 100%; max-width: 400px; }
+        #image-preview { width: 100%; height: 200px; border: 2px dashed #ccc; border-radius: 10px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        #image-preview img { width: 100%; height: 100%; object-fit: cover; }
+        input[type="file"] { display: none; }
+        .custom-label { background: #0078d4; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .custom-label:hover { background: #005a9e; }
+        button { margin-top: 20px; background: #28a745; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <div class="upload-container">
+        <h2>📸 Upload to SnapMap</h2>
+        <div id="image-preview">
+            <span id="placeholder-text">Gallery Preview</span>
+        </div>
+        
+        <label for="file-upload" class="custom-label">Choose from Gallery</label>
+        <input type="file" id="file-upload" accept="image/*" onchange="previewImage(event)">
+        
+        <br>
+        <button onclick="uploadToSnapMap()">Upload to Campus Map</button>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('image-preview');
+                output.innerHTML = `<img src="${reader.result}">`;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function uploadToSnapMap() {
+            const fileInput = document.getElementById('file-upload');
+            if (fileInput.files.length === 0) {
+                alert("Please select a photo first!");
+                return;
+            }
+            alert("Ready to send to Backend! Connecting to MongoDB Atlas & Azure...");
+            // Here you would use Axios/Fetch to send the file to your /api/v1/upload route
+        }
+    </script>
+</body>
+</html>
