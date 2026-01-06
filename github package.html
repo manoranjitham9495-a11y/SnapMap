@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapMap | Setup Status</title>
+    <style>
+        :root { --github-dark: #24292e; --azure-blue: #0078d4; --success-green: #28a745; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background-color: #f6f8fa; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .setup-card { background: white; width: 90%; max-width: 450px; padding: 2rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2); border: 1px solid #d1d5da; }
+        h1 { font-size: 1.5rem; color: var(--github-dark); margin-bottom: 1.5rem; border-bottom: 2px solid #eaecef; padding-bottom: 10px; }
+        .step { display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 15px; border-radius: 8px; transition: 0.3s; background: #fff; border: 1px solid #e1e4e8; }
+        .step:hover { border-color: var(--azure-blue); box-shadow: 0 4px 12px rgba(0, 120, 212, 0.1); }
+        .checkbox { width: 22px; height: 22px; margin-right: 15px; cursor: pointer; accent-color: var(--success-green); }
+        .step-content { flex: 1; }
+        .step-title { font-weight: 600; color: #0366d6; margin-bottom: 4px; display: block; }
+        .step-desc { font-size: 0.85rem; color: #586069; line-height: 1.4; }
+        .badge { display: inline-block; padding: 2px 8px; font-size: 0.7rem; border-radius: 20px; background: #e1f0ff; color: #0366d6; margin-top: 8px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="setup-card">
+    <h1>SnapMap Cloud Setup</h1>
+
+    <div class="step">
+        <input type="checkbox" class="checkbox" id="edu">
+        <div class="step-content">
+            <label for="edu" class="step-title">GitHub Education Pack</label>
+            <div class="step-desc">Personal email linked + ID Card uploaded. Waiting for 24-48hr verification.</div>
+            <span class="badge">In Progress</span>
+        </div>
+    </div>
+
+    <div class="step">
+        <input type="checkbox" class="checkbox" id="azure">
+        <div class="step-content">
+            <label for="azure" class="step-title">Azure Student Subscription</label>
+            <div class="step-desc">Activate $100 credits for Blob Storage and MongoDB Atlas integration.</div>
+            <span class="badge" style="background: #fff5b1; color: #857000;">Pending Edu Pack</span>
+        </div>
+    </div>
+
+    <p style="font-size: 0.75rem; text-align: center; color: #aaa;">
+        Verify screenshots before uploading to <code>GithubEdu/&lt;id&gt;.png</code>
+    </p>
+</div>
+
+</body>
+</html>
